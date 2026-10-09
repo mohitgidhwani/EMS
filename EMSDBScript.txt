@@ -1,0 +1,761 @@
+USE [master]
+GO
+/****** Object:  Database [EmployeeManagement]    Script Date: 2026-10-09 10:03:50 PM ******/
+CREATE DATABASE [EmployeeManagement]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'EmployeeManagement', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL17.SQLEXPRESS\MSSQL\DATA\EmployeeManagement.mdf' , SIZE = 73728KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'EmployeeManagement_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL17.SQLEXPRESS\MSSQL\DATA\EmployeeManagement_log.ldf' , SIZE = 73728KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [EmployeeManagement] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [EmployeeManagement].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [EmployeeManagement] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [EmployeeManagement] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [EmployeeManagement] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [EmployeeManagement] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [EmployeeManagement] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [EmployeeManagement] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [EmployeeManagement] SET  MULTI_USER 
+GO
+ALTER DATABASE [EmployeeManagement] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [EmployeeManagement] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [EmployeeManagement] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [EmployeeManagement] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [EmployeeManagement] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [EmployeeManagement] SET OPTIMIZED_LOCKING = OFF 
+GO
+ALTER DATABASE [EmployeeManagement] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [EmployeeManagement] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [EmployeeManagement]
+GO
+/****** Object:  Table [dbo].[EmploayeeAuth]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmploayeeAuth](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[AuthName] [varchar](100) NULL,
+	[AuthRole] [varchar](50) NULL,
+	[PasswordHash] [varchar](max) NULL,
+	[Country] [varchar](100) NULL,
+	[Age] [int] NULL,
+	[Gender] [varchar](100) NULL,
+	[Salary] [decimal](18, 0) NULL,
+	[JoiningDate] [date] NULL,
+	[ProfilePicture] [nvarchar](max) NULL,
+	[Email] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeData]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeData](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[EmpName] [varchar](100) NULL,
+	[EmpAge] [int] NULL,
+	[EmpGender] [varchar](50) NULL,
+	[EmpSalary] [decimal](18, 0) NULL,
+	[EmpCountry] [varchar](50) NULL,
+	[EmpEmail] [nchar](500) NULL,
+	[ReportingManagerId] [int] NULL,
+	[TeamLeadId] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeLogs]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeLogs](
+	[logId] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NULL,
+	[EmpName] [varchar](100) NULL,
+	[EmpAge] [int] NULL,
+	[EmpGender] [varchar](50) NULL,
+	[EmpSalary] [decimal](18, 0) NULL,
+	[EmpCountry] [varchar](50) NULL,
+	[ActionType] [varchar](10) NULL,
+	[ChangeDate] [datetime] NULL,
+	[EmpEmail] [nchar](500) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[logId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Projects]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Projects](
+	[ProjectId] [int] IDENTITY(1,1) NOT NULL,
+	[ProjectName] [nvarchar](200) NULL,
+	[ProjectDate] [datetime] NULL,
+	[ClientName] [varchar](100) NULL,
+	[ClientLocation] [varchar](150) NULL,
+	[Duration] [nvarchar](100) NULL,
+	[Ammount] [decimal](18, 0) NULL,
+	[ProjectCategory] [varchar](100) NULL,
+	[DeadLine] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProjectId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ReportDetails]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ReportDetails](
+	[ReportId] [int] IDENTITY(1,1) NOT NULL,
+	[Report] [nvarchar](500) NULL,
+	[ReportStatus] [varchar](100) NULL,
+	[IssueDetails] [nvarchar](500) NULL,
+	[Priority] [varchar](100) NULL,
+	[ProjectId] [int] NULL,
+	[Name] [nchar](100) NULL,
+	[reportDate] [date] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ReportId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[EmployeeLogs] ADD  DEFAULT (getdate()) FOR [ChangeDate]
+GO
+ALTER TABLE [dbo].[EmployeeData]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeData_ReportingManager] FOREIGN KEY([ReportingManagerId])
+REFERENCES [dbo].[EmployeeData] ([id])
+GO
+ALTER TABLE [dbo].[EmployeeData] CHECK CONSTRAINT [FK_EmployeeData_ReportingManager]
+GO
+ALTER TABLE [dbo].[EmployeeData]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeData_TeamLead] FOREIGN KEY([TeamLeadId])
+REFERENCES [dbo].[EmployeeData] ([id])
+GO
+ALTER TABLE [dbo].[EmployeeData] CHECK CONSTRAINT [FK_EmployeeData_TeamLead]
+GO
+ALTER TABLE [dbo].[ReportDetails]  WITH CHECK ADD  CONSTRAINT [FK_Report_Project] FOREIGN KEY([ProjectId])
+REFERENCES [dbo].[Projects] ([ProjectId])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ReportDetails] CHECK CONSTRAINT [FK_Report_Project]
+GO
+/****** Object:  StoredProcedure [dbo].[AddEditProjectDetails]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AddEditProjectDetails]
+@ProjectId INT ,
+@ProjectName NVARCHAR (200),
+@ProjectDate DATETIME , 
+@ClientName VARCHAR(100),
+@ClientLocation VARCHAR (150),
+@Duration NVARCHAR(100),
+@Ammount DECIMAL,
+@ProjectCategory VARCHAR(100),
+@DeadLine DATETIME
+AS
+BEGIN
+
+ SET NOCOUNT ON; 
+
+   IF EXISTS (SELECT 1 FROM Projects WHERE ProjectId = @ProjectId)
+   BEGIN
+     UPDATE Projects
+	 SET ProjectName = @ProjectName,
+	     ProjectDate = @ProjectDate,
+		 ClientName = @ClientName,
+		 ClientLocation = @ClientLocation,
+		 Duration = @Duration,
+		 Ammount = @Ammount,
+		 ProjectCategory = @ProjectCategory,
+		 DeadLine = @DeadLine
+	WHERE ProjectId =  @ProjectId
+   END
+
+   ELSE
+   BEGIN
+     INSERT INTO Projects ( 
+	   ProjectName ,
+	   ProjectDate,
+	   ClientName,
+	   ClientLocation,
+	   Duration,
+	   Ammount,
+	   ProjectCategory,
+	   DeadLine
+	 )
+	 VALUES (
+	 @ProjectName,
+	 @ProjectDate,
+	 @ClientName,
+	 @ClientLocation,
+	 @Duration,
+	 @Ammount,
+	 @ProjectCategory,
+	 @DeadLine
+	 )
+   END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddProjectReport]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AddProjectReport]
+@Report NVARCHAR(500),
+@Name VARCHAR(100),
+@ReportStatus VARCHAR(100),
+@IssueDetails NVARCHAR(500),
+@Priority VARCHAR(100),
+@ProjectId INT,
+@reportDate DATE
+AS
+BEGIN
+   INSERT INTO ReportDetails ( Report , Name , ReportStatus , IssueDetails , Priority , ProjectId , reportDate )
+   VALUES ( @Report , @Name, @ReportStatus , @IssueDetails , @Priority , @ProjectId , GETDATE() )
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AuthLogin_Sp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AuthLogin_Sp]
+@AuthName VARCHAR ( 100 ) 
+AS
+BEGIN
+  SELECT * FROM EmploayeeAuth
+   WHERE AuthName = @AuthName
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AuthLoginLite_Sp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Lightweight login lookup — same shape as your existing AuthLogin_Sp but
+-- with ProfilePicture forced to NULL. Login only needs the password hash;
+-- there's no reason to transfer a large base64 image on every sign-in.
+-- Adjust the SELECT list if your EmploayeeAuth columns differ slightly.
+CREATE   PROCEDURE [dbo].[AuthLoginLite_Sp]
+    @AuthName NVARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        Id,
+        AuthName,
+        AuthRole,
+        PasswordHash,
+        Country,
+        Age,
+        Gender,
+        Salary,
+        JoiningDate,
+        CAST(NULL AS NVARCHAR(MAX)) AS ProfilePicture,
+        Email
+    FROM dbo.EmploayeeAuth
+    WHERE AuthName = @AuthName;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AuthRegister_Sp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AuthRegister_Sp]
+@AuthName VARCHAR ( 100 ) ,
+@AuthRole VARCHAR ( 50 ) , 
+@PasswordHash VARCHAR (MAX),
+@Country VARCHAR ( 100 ),
+@Age INT,
+@Gender varchar(100),
+@Salary DECIMAL,
+@JoiningDate DATE,
+@ProfilePicture NVARCHAR(MAX),
+@Email NVARCHAR(100)
+AS
+BEGIN
+   INSERT INTO EmploayeeAuth ( AuthName , AuthRole , PasswordHash , Country , Age , Gender , Salary , JoiningDate , ProfilePicture , Email )
+	 VALUES 
+	( @AuthName , @AuthRole , @PasswordHash , @Country , @Age , @Gender , @Salary , @JoiningDate , @ProfilePicture , @Email )
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[ChangePassword_Sp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Update just the password hash for a user (hash is computed in
+-- the API with BCrypt before this proc is called).
+CREATE   PROCEDURE [dbo].[ChangePassword_Sp]
+    @AuthName NVARCHAR(100),
+    @AuthRole NVARCHAR(50),
+    @PasswordHash NVARCHAR(MAX)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE dbo.EmploayeeAuth
+    SET PasswordHash = @PasswordHash
+    WHERE AuthName = @AuthName AND AuthRole = @AuthRole;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteAuth]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DeleteAuth]
+@id INT
+AS
+BEGIN
+  DELETE EmploayeeAuth
+  WHERE id = @id
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteProjectById]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DeleteProjectById]
+@ProjectId INT
+AS
+BEGIN
+
+  DELETE Projects
+  WHERE ProjectId = @ProjectId
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[EmploayeeAuth_SP]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[EmploayeeAuth_SP]
+  @ACTION  VARCHAR ( 50 ),
+  @id INT,
+  @AuthName VARCHAR ( 100 ) ,
+  @AuthRole VARCHAR ( 50 ) , 
+  @PasswordHash VARCHAR (MAX)
+  AS
+
+  BEGIN
+    IF( @ACTION = 'REGISTER' )
+	BEGIN
+	 INSERT INTO EmploayeeAuth ( AuthName , AuthRole , PasswordHash )
+	 VALUES 
+	 ( @AuthName , @AuthRole , @PasswordHash )
+	END
+
+	ELSE IF( @ACTION = 'LOGIN' )
+	BEGIN
+	 SELECT * FROM EmploayeeAuth
+	 WHERE AuthName = @AuthName
+	END
+  END
+GO
+/****** Object:  StoredProcedure [dbo].[Employee_DeleteSp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Employee_DeleteSp]
+@id int
+AS
+BEGIN
+
+ SET NOCOUNT ON; 
+ 
+  DELETE EmployeeData
+  WHERE id = @id
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Employee_GetAllSp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Only run these two if your existing versions are plain SELECT * (see note above).
+CREATE   PROCEDURE [dbo].[Employee_GetAllSp]
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT * FROM dbo.EmployeeData;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Employee_GetByIdSp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE   PROCEDURE [dbo].[Employee_GetByIdSp]
+    @id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT * FROM dbo.EmployeeData WHERE Id = @id;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Employee_InsertSp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Employee_InsertSp]
+@id INT ,
+@EmpName VARCHAR (100),
+ @EmpAge INT ,
+ @EmpGender VARCHAR (50),
+ @EmpSalary DECIMAL,
+ @EmpCountry VARCHAR (50),
+ @EmpEmail NVARCHAR (500)
+AS
+BEGIN
+
+ SET NOCOUNT ON; 
+  
+   IF EXISTS (SELECT 1 FROM EmployeeData WHERE id = @id)
+   BEGIN
+      UPDATE EmployeeData
+	  SET EmpName = @EmpName,
+	      EmpAge = @EmpAge,
+		  EmpGender = @EmpGender,
+		  EmpSalary = @EmpSalary ,
+		  EmpCountry = @EmpCountry ,
+		  EmpEmail = @EmpEmail
+	WHERE id = @id
+   END
+
+ELSE
+	BEGIN
+	   INSERT INTO EmployeeData ( EmpName ,  EmpAge , EmpGender ,  EmpSalary ,  EmpCountry , EmpEmail)
+	   VALUES
+      ( @EmpName , @EmpAge , @EmpGender , @EmpSalary , @EmpCountry , @EmpEmail)
+    END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Employee_UpsertSp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- New upsert proc (INSERT when @id = 0, otherwise UPDATE) used by both
+-- Add Employee and Edit Employee — replaces the old Employee_InsertSp
+-- call in the C# repository; the original proc is left untouched.
+CREATE   PROCEDURE [dbo].[Employee_UpsertSp]
+    @id INT,
+    @EmpName NVARCHAR(100) = NULL,
+    @EmpAge INT = NULL,
+    @EmpGender NVARCHAR(50) = NULL,
+    @EmpSalary DECIMAL(18, 0) = NULL,
+    @EmpCountry NVARCHAR(50) = NULL,
+    @EmpEmail NVARCHAR(500) = NULL,
+    @ReportingManagerId INT = NULL,
+    @TeamLeadId INT = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF @id IS NULL OR @id = 0
+    BEGIN
+        INSERT INTO dbo.EmployeeData
+            (EmpName, EmpAge, EmpGender, EmpSalary, EmpCountry, EmpEmail, ReportingManagerId, TeamLeadId)
+        VALUES
+            (@EmpName, @EmpAge, @EmpGender, @EmpSalary, @EmpCountry, @EmpEmail, @ReportingManagerId, @TeamLeadId);
+    END
+    ELSE
+    BEGIN
+        UPDATE dbo.EmployeeData
+        SET EmpName = @EmpName,
+            EmpAge = @EmpAge,
+            EmpGender = @EmpGender,
+            EmpSalary = @EmpSalary,
+            EmpCountry = @EmpCountry,
+            EmpEmail = @EmpEmail,
+            ReportingManagerId = @ReportingManagerId,
+            TeamLeadId = @TeamLeadId
+        WHERE Id = @id;
+    END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[EmployeeData_SP]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[EmployeeData_SP]
+ @ACTION VARCHAR(50),
+ @id INT,
+ @EmpName VARCHAR (100),
+ @EmpAge INT ,
+ @EmpGender VARCHAR (50),
+ @EmpSalary DECIMAL,
+ @EmpCountry VARCHAR (50) ,
+ @EmpEmail NVARCHAR(500)
+AS
+BEGIN
+   
+   IF( @ACTION = 'GETALL')
+   BEGIN
+    SELECT * FROM EmployeeData
+   END 
+
+   ELSE IF( @ACTION = 'GETBYID' )
+   BEGIN
+    SELECT * FROM EmployeeData
+	WHERE id = @id
+   END
+
+   ELSE IF ( @ACTION = 'INSERT' )
+   BEGIN
+    INSERT INTO EmployeeData ( EmpName ,  EmpAge , EmpGender ,  EmpSalary ,  EmpCountry , EmpEmail)
+	VALUES
+	( @EmpName , @EmpAge , @EmpGender , @EmpSalary , @EmpCountry , @EmpEmail )
+   END
+
+
+   ELSE IF ( @ACTION = 'UPDATE' )
+   BEGIN
+     UPDATE EmployeeData
+	 SET EmpName = @EmpName,
+	     EmpAge = @EmpAge,
+		 EmpGender = @EmpGender ,
+		 EmpSalary = @EmpSalary,
+		 EmpCountry = @EmpCountry ,
+		 EmpEmail = @EmpEmail
+     WHERE id = @id
+   END
+
+
+   ELSE IF ( @ACTION = 'DELETE' )
+   BEGIN
+     DELETE EmployeeData
+	 WHERE id = @id
+   END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[EmployeeLogs_SP]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[EmployeeLogs_SP]
+@ACTION VARCHAR (50),
+@logId INT 
+AS
+BEGIN
+
+   IF(@ACTION = 'GETALLLOG')
+   BEGIN
+    SELECT * FROM EmployeeLogs
+   END
+
+   ELSE IF( @ACTION = 'GETLOGBYID' )
+   BEGIN
+     SELECT * FROM EmployeeLogs
+	 WHERE logId = @logId
+   END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetAllReports]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetAllReports]
+AS
+BEGIN
+  SELECT r.*, p.ProjectName , p.ProjectCategory   FROM ReportDetails r
+  JOIN Projects p ON p.ProjectId = r.ProjectId
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetProjectById]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetProjectById]
+@ProjectId INT
+AS
+BEGIN
+SELECT * FROM Projects
+WHERE ProjectId = @ProjectId
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetProjectDetails]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+CREATE PROCEDURE [dbo].[GetProjectDetails]
+AS
+BEGIN
+  SELECT * FROM Projects
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetRegisterUsers]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetRegisterUsers]
+AS
+BEGIN
+ SELECT * FROM EmploayeeAuth
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetReportById]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetReportById]
+@ReportId INT
+AS
+BEGIN
+SELECT r.*, p.ProjectName , p.ProjectCategory   FROM ReportDetails r
+  JOIN Projects p ON p.ProjectId = r.ProjectId
+WHERE ReportId = @ReportId 
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetUserByNameRole_Sp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Fetch a single user row by username + role (used to verify the
+-- current password and to re-read a row after an update).
+CREATE   PROCEDURE [dbo].[GetUserByNameRole_Sp]
+    @AuthName NVARCHAR(100),
+    @AuthRole NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT TOP 1 *
+    FROM dbo.EmploayeeAuth
+    WHERE AuthName = @AuthName AND AuthRole = @AuthRole;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateProfile_Sp]    Script Date: 2026-10-09 10:03:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Update the editable profile fields for a user. Pass NULL for
+-- any field you don't want to change; the COALESCE keeps the
+-- existing value in that case.
+CREATE   PROCEDURE [dbo].[UpdateProfile_Sp]
+    @AuthName NVARCHAR(100),
+    @AuthRole NVARCHAR(50),
+    @NewAuthName NVARCHAR(100) = NULL,
+    @Email NVARCHAR(255) = NULL,
+    @Country NVARCHAR(100) = NULL,
+    @Age INT = NULL,
+    @Gender NVARCHAR(100) = NULL,
+    @ProfilePicture NVARCHAR(MAX) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE dbo.EmploayeeAuth
+    SET
+        AuthName = COALESCE(@NewAuthName, AuthName),
+        Email = COALESCE(@Email, Email),
+        Country = COALESCE(@Country, Country),
+        Age = COALESCE(@Age, Age),
+        Gender = COALESCE(@Gender, Gender),
+        ProfilePicture = COALESCE(@ProfilePicture, ProfilePicture)
+    WHERE AuthName = @AuthName AND AuthRole = @AuthRole;
+END
+GO
+USE [master]
+GO
+ALTER DATABASE [EmployeeManagement] SET  READ_WRITE 
+GO
