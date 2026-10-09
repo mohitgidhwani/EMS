@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gidhw\\OneDrive\\Desktop\\EMS\\EMS_BackEnd\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\gidhw\\onedrive\\desktop\\ems\\ems_backend\\employeedashboard\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\gidhw\\OneDrive\\Desktop\\EMS\\EMS_BackEnd\\employeeDashboard\\appsettings.json",
+              "RelativeDocumentMoniker": "employeeDashboard\\appsettings.json",
+              "ToolTip": "C:\\Users\\gidhw\\OneDrive\\Desktop\\EMS\\EMS_BackEnd\\employeeDashboard\\appsettings.json",
+              "RelativeToolTip": "employeeDashboard\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-09T15:10:32.923Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

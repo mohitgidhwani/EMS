@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\models\\reportdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\models\\reportdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\models\\employeemanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\models\\employeemanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\models\\employeelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\models\\employeelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|c:\\users\\mohit\\source\\repos\\employeedashboard\\employeedashboard\\repositories\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F466D74B-7622-4F8D-85ED-8C8DA83B5A59}|employeeDashboard\\employeeDashboard.csproj|solutionrelative:employeedashboard\\repositories\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Repositories\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Repositories\\EmployeeRepository.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Repositories\\EmployeeRepository.cs",
+              "RelativeToolTip": "employeeDashboard\\Repositories\\EmployeeRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wD0AAADIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T12:22:55.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeManagementContext.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\EmployeeManagementContext.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Models\\EmployeeManagementContext.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\EmployeeManagementContext.cs",
+              "RelativeToolTip": "employeeDashboard\\Models\\EmployeeManagementContext.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAowFsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T12:22:14.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProjectRepository.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Repositories\\ProjectRepository.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Repositories\\ProjectRepository.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Repositories\\ProjectRepository.cs",
+              "RelativeToolTip": "employeeDashboard\\Repositories\\ProjectRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T11:38:35.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReportRepository.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Repositories\\ReportRepository.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Repositories\\ReportRepository.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Repositories\\ReportRepository.cs",
+              "RelativeToolTip": "employeeDashboard\\Repositories\\ReportRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T11:35:56.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeLog.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\EmployeeLog.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Models\\EmployeeLog.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\EmployeeLog.cs",
+              "RelativeToolTip": "employeeDashboard\\Models\\EmployeeLog.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAxwBkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-26T11:31:23.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportDetail.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\ReportDetail.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Models\\ReportDetail.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\ReportDetail.cs",
+              "RelativeToolTip": "employeeDashboard\\Models\\ReportDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T11:29:38.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\Project.cs",
+              "RelativeDocumentMoniker": "employeeDashboard\\Models\\Project.cs",
+              "ToolTip": "C:\\Users\\mohit\\source\\repos\\employeeDashboard\\employeeDashboard\\Models\\Project.cs",
+              "RelativeToolTip": "employeeDashboard\\Models\\Project.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T11:28:36.177Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
